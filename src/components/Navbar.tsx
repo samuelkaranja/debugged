@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold tracking-wide">
-          debugged
+          codedebugged
         </Link>
 
         {/* Desktop Nav */}

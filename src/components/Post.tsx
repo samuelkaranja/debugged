@@ -18,9 +18,8 @@ const Post: React.FC<PostProps> = ({ post }) => {
       <div className="md:w-1/2 mx-auto border border-gray-200 shadow p-5 rounded-lg mb-4">
         <h1 className="text-3xl text-[#21262b]">{post.title}</h1>
         <div className="mt-2 text-sm text-gray-600">
-          <span>By Samuel Karanja - </span>
-          <span>Sep 15, 2025 - </span>
-          <span>Programming</span>
+          <span>By Samuel Karanja | </span>
+          <span>Sep 15, 2025</span>
         </div>
         <div className="mt-3">
           <p className="text-md text-gray-800">{post.subtitle}</p>

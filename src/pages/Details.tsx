@@ -1,34 +1,23 @@
 import React from "react";
-import Code from "../assets/code.jpg";
 import { posts } from "../Posts";
 import { useParams } from "react-router-dom";
+import Content from "../components/Content";
+import RelatedPosts from "../components/RelatedPosts";
 
 const Details: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const post = posts.find((post) => post.id.toString() === id);
 
   return (
-    <div className="w-1/2 mx-auto p-5">
-      <h1 className="text-4xl text-bold mt-2">{post?.title}</h1>
-      <div className="mt-3 text-sm text-gray-600">
-        <span>By Samuel Karanja - </span>
-        <span>Sep 15, 2025 - </span>
-        <span>Programming</span>
-      </div>
-      <div className="mt-3">
-        <p className="text-md text-gray-800">{post?.subtitle}</p>
-      </div>
-      <div className="mt-4 w-full h-70">
-        <img
-          className="rounded w-full h-full object-cover"
-          src={post?.image || Code}
-          alt="codesnippet"
-        />
-      </div>
-      <div>
-        <p className="mt-4 text-gray-800">
-          {post?.description || "No description available for this post."}
-        </p>
+    <div className=" min-h-screen text-[#333]">
+      <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Main Blog Content */}
+        <div className="lg:col-span-2">{post && <Content {...post} />}</div>
+
+        {/* Sidebar */}
+        <aside>
+          <RelatedPosts />
+        </aside>
       </div>
     </div>
   );

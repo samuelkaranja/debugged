@@ -1,12 +1,12 @@
 import React from "react";
 import Post from "../components/Post";
-import SearchPost from "../components/SearchPost";
+//import SearchPost from "../components/SearchPost";
 import { posts } from "../Posts";
 
 const Home: React.FC = () => {
   return (
     <div>
-      <SearchPost />
+      {/* <SearchPost /> */}
 
       {posts.map((post) => (
         <Post key={post.id} post={post} />
