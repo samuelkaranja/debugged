@@ -15,7 +15,7 @@ interface PostProps {
 const Post: React.FC<PostProps> = ({ post }) => {
   return (
     <>
-      <div className="md:w-1/2 mx-auto border border-gray-200 shadow p-5 rounded-lg mb-4">
+      <div className="md:w-1/2 mx-auto md:border border-gray-200 md:shadow p-5 rounded-lg mb-4">
         <h1 className="text-3xl text-[#21262b]">{post.title}</h1>
         <div className="mt-2 text-sm text-gray-600">
           <span>By Samuel Karanja | </span>

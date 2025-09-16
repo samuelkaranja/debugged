@@ -5,15 +5,15 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="text-[#333] px-7 py-3 md:px-10 mb-3 md:border-b border-gray-200">
+    <nav className="text-[#333] px-7 py-4 md:px-10 md:mb-5 border-b border-gray-200">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold tracking-wide">
+        <Link to="/" className="text-2xl font-bold tracking-wide italic">
           codedebugged
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-8 text-md">
+        <div className="hidden md:flex space-x-8 text-sm">
           <Link to="/" className="hover:underline transition">
             Home
           </Link>
@@ -41,21 +41,21 @@ const Navbar: React.FC = () => {
         <div className="md:hidden mt-5 mb-3 space-y-4 flex flex-col text-center">
           <Link
             to="/"
-            className="hover:text-emerald-400 transition"
+            className="hover:text-emerald-400 transition border-b border-gray-200 pb-2"
             onClick={() => setIsOpen(false)}
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="hover:text-emerald-400 transition"
+            className="hover:text-emerald-400 transition border-b border-gray-200 pb-2"
             onClick={() => setIsOpen(false)}
           >
             About
           </Link>
           <Link
             to="/contact"
-            className="hover:text-emerald-400 transition"
+            className="hover:text-emerald-400 transition border-b border-gray-200 pb-2"
             onClick={() => setIsOpen(false)}
           >
             Contact

@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Post from "../components/Post";
-//import SearchPost from "../components/SearchPost";
 import { posts } from "../Posts";
 
 const Home: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
-      {/* <SearchPost /> */}
-
       {posts.map((post) => (
         <Post key={post.id} post={post} />
       ))}
