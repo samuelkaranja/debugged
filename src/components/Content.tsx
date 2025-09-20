@@ -1,5 +1,6 @@
-import React from "react";
-//import Code from "../assets/code.jpg";
+import React, { useEffect } from "react";
+import hljs from "highlight.js";
+import "highlight.js/styles/monokai-sublime.css"; // match CKEditor theme
 
 interface Post {
   id: number;
@@ -21,6 +22,11 @@ const PostContent: React.FC<Post> = (post) => {
       day: "numeric",
     });
   };
+
+  // ⚡ Highlight code blocks after rendering
+  useEffect(() => {
+    hljs.highlightAll();
+  }, [post.content]);
 
   return (
     <article>

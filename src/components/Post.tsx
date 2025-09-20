@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-//import Code from "../assets/code.jpg";
 import { Link } from "react-router-dom";
 import type { AppDispatch, RootState } from "../store/store";
 import { fetchPosts } from "../store/slices/postsSlice";
