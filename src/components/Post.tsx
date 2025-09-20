@@ -63,7 +63,7 @@ const Post: React.FC = () => {
               {truncateText(post.subtitle, 100)}
             </p>
           </div>
-          <div className="mt-4 w-full h-70">
+          <div className="mt-4 w-full md:h-70">
             <img
               className="rounded w-full h-full object-cover"
               src={post.image_url}
@@ -73,7 +73,7 @@ const Post: React.FC = () => {
           <div className="mt-4">
             <Link
               to={`/details/${post.id}`}
-              className="text-blue-600 hover:underline text-sm"
+              className="text-blue-600 hover:underline text-sm underline"
             >
               Read More
             </Link>

@@ -38,7 +38,7 @@ const PostContent: React.FC<Post> = (post) => {
 
       <p>{post.subtitle}</p>
 
-      <div className="mt-5 mb-5 w-full h-80">
+      <div className="mt-5 mb-5 w-full md:h-80">
         <img
           className="rounded w-full h-full object-cover"
           src={post.image_url}
