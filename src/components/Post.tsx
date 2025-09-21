@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import type { AppDispatch, RootState } from "../store/store";
 import { fetchPosts } from "../store/slices/postsSlice";
+import { formatDate, truncateText } from "../utils/helpers";
 
 const Post: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -13,22 +14,6 @@ const Post: React.FC = () => {
   useEffect(() => {
     dispatch(fetchPosts());
   }, [dispatch]);
-
-  // 📅 Format created_at date
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleString("en-US", {
-      year: "numeric",
-      month: "long", // e.g. September
-      day: "numeric",
-    });
-  };
-
-  // ✂️ Truncate subtitle
-  const truncateText = (text: string, maxLength: number) => {
-    if (!text) return "";
-    return text.length <= maxLength ? text : text.slice(0, maxLength) + "...";
-  };
 
   if (loading) {
     return <div className="text-2xl text-center">Loading...</div>;

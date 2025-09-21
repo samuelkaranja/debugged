@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import hljs from "highlight.js";
-import "highlight.js/styles/monokai-sublime.css"; // match CKEditor theme
+import "highlight.js/styles/monokai-sublime.css";
+import { formatDate } from "../utils/helpers";
 
 interface Post {
   id: number;
@@ -13,16 +14,6 @@ interface Post {
 }
 
 const PostContent: React.FC<Post> = (post) => {
-  // 📅 Format created_at date
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleString("en-US", {
-      year: "numeric",
-      month: "long", // e.g. September
-      day: "numeric",
-    });
-  };
-
   // ⚡ Highlight code blocks after rendering
   useEffect(() => {
     hljs.highlightAll();
