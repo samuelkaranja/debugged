@@ -34,6 +34,7 @@ const PostContent: React.FC<Post> = (post) => {
           className="rounded w-full h-full object-cover"
           src={post.image_url}
           alt={post.title}
+          loading="lazy"
         />
       </div>
 

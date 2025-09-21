@@ -53,6 +53,7 @@ const Post: React.FC = () => {
               className="rounded w-full h-full object-cover"
               src={post.image_url}
               alt="codesnippet"
+              loading="lazy"
             />
           </div>
           <div className="mt-4">
