@@ -17,6 +17,9 @@ const Navbar: React.FC = () => {
           <Link to="/" className="hover:underline transition">
             Home
           </Link>
+          <Link to="/podcast" className="hover:underline transition">
+            Podcast
+          </Link>
           <Link to="/about-me" className="hover:underline transition">
             About
           </Link>

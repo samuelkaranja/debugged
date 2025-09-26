@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Details from "./pages/Details";
 import Footer from "./components/Footer";
 import AboutMe from "./pages/AboutMe";
+import Podcast from "./pages/Podcast";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/details/:id" element={<Details />} />
+            <Route path="/podcast" element={<Podcast />} />
             <Route path="/about-me" element={<AboutMe />} />
 
             <Route path="*" element={<Home />} />
