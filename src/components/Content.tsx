@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 import { formatDate } from "../utils/helpers";
@@ -14,9 +14,15 @@ interface Post {
 }
 
 const PostContent: React.FC<Post> = (post) => {
-  // ⚡ Highlight code blocks after rendering
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  //Highlight code blocks after rendering
   useEffect(() => {
-    hljs.highlightAll();
+    if (contentRef.current) {
+      contentRef.current.querySelectorAll("pre code").forEach((block) => {
+        hljs.highlightElement(block as HTMLElement);
+      });
+    }
   }, [post.content]);
 
   return (
@@ -27,7 +33,7 @@ const PostContent: React.FC<Post> = (post) => {
         {formatDate(post.created_at)}
       </p>
 
-      <p>{post.subtitle}</p>
+      <p className="mb-4 text-lg text-gray-700">{post.subtitle}</p>
 
       <div className="mt-5 mb-5 w-full md:h-80">
         <img
@@ -40,6 +46,7 @@ const PostContent: React.FC<Post> = (post) => {
 
       {/* Render HTML content safely */}
       <div
+        ref={contentRef}
         className="prose max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />

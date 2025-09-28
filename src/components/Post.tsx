@@ -7,15 +7,18 @@ import { formatDate, truncateText } from "../utils/helpers";
 
 const Post: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { posts, loading, error } = useSelector(
+  const { posts, loadingPosts, error } = useSelector(
     (state: RootState) => state.posts
   );
 
   useEffect(() => {
-    dispatch(fetchPosts());
-  }, [dispatch]);
+    //Only fetch if not already loaded
+    if (!posts.length) {
+      dispatch(fetchPosts());
+    }
+  }, [dispatch, posts.length]);
 
-  if (loading) {
+  if (loadingPosts) {
     return <div className="text-2xl text-center">Loading...</div>;
   }
 

@@ -5,12 +5,12 @@ import RelatedPosts from "../components/RelatedPosts";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../store/store";
-import { fetchPostById } from "../store/slices/postsSlice";
+import { fetchPostById, clearPost } from "../store/slices/postsSlice";
 
 const Details: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch<AppDispatch>();
-  const { post, loading, error } = useSelector(
+  const { post, loadingPost, error } = useSelector(
     (state: RootState) => state.posts
   );
 
@@ -18,10 +18,13 @@ const Details: React.FC = () => {
     if (id) {
       dispatch(fetchPostById(Number(id)));
     }
-    window.scrollTo(0, 0);
+
+    return () => {
+      dispatch(clearPost()); // ✅ cleanup when leaving page
+    };
   }, [dispatch, id]);
 
-  if (loading) return <p className="text-2xl text-center">Loading...</p>;
+  if (loadingPost) return <p className="text-2xl text-center">Loading...</p>;
   if (error) return <p className="text-2xl text-center">Error: {error}</p>;
   if (!post) return <p className="text-2xl text-center">No post found</p>;
 
