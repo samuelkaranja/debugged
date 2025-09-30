@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Post from "../components/Post";
+import PostList from "../components/PostList";
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -8,7 +8,7 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <Post />
+      <PostList />
     </div>
   );
 };
