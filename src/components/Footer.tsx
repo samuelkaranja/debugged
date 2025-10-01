@@ -1,6 +1,5 @@
 import React from "react";
 import { FiFacebook, FiGithub, FiInstagram } from "react-icons/fi";
-import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
@@ -11,19 +10,23 @@ const Footer: React.FC = () => {
         </p>
         <ul className="flex justify-center space-x-7 mb-4 mt-2">
           <li>
-            <Link to="/">
+            <a href="/">
               <FiFacebook className="text-blue-500 w-5 h-5" />
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="/">
+            <a href="/">
               <FiInstagram className="text-pink-500 w-5 h-5" />
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="/">
+            <a
+              href="https://github.com/samuelkaranja"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FiGithub className="text-black w-5 h-5" />
-            </Link>
+            </a>
           </li>
         </ul>
         <p className="text-sm">Made with ❤️ by Samuel Karanja</p>
