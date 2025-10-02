@@ -15,8 +15,14 @@ const PostCard: React.FC<PostProps> = ({ post }) => {
     >
       <h1 className="text-3xl text-[#21262b]">{post.title}</h1>
       <div className="mt-2 text-sm text-gray-600">
-        <span>By {post.author} | </span>
-        <span>{formatDate(post.created_at)}</span>
+        <span>
+          By{" "}
+          <Link to="/about-me" className="underline">
+            {post.author}
+          </Link>
+        </span>
+
+        <span className="pl-1">| {formatDate(post.created_at)}</span>
       </div>
       <div className="mt-3">
         <p className="text-md text-gray-800">
