@@ -1,31 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import Content from "../components/Content";
 import RelatedPosts from "../components/RelatedPosts";
 import Breadcrumbs from "../components/Breadcrumbs";
-import { useDispatch, useSelector } from "react-redux";
-import type { AppDispatch, RootState } from "../store/store";
-import { fetchPostById, clearPost } from "../store/slices/postsSlice";
+import { useGetPostByIdQuery } from "../store/slices/postsApi";
 
 const Details: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const dispatch = useDispatch<AppDispatch>();
-  const { post, loadingPost, error } = useSelector(
-    (state: RootState) => state.posts
-  );
+  const { data: post, isLoading, error } = useGetPostByIdQuery(Number(id));
 
-  useEffect(() => {
-    if (id) {
-      dispatch(fetchPostById(Number(id)));
-    }
-
-    return () => {
-      dispatch(clearPost()); // ✅ cleanup when leaving page
-    };
-  }, [dispatch, id]);
-
-  if (loadingPost) return <p className="text-2xl text-center">Loading...</p>;
-  if (error) return <p className="text-2xl text-center">Error: {error}</p>;
+  if (isLoading) return <p className="text-2xl text-center">Loading...</p>;
+  if (error) return <p className="text-2xl text-center">Error fetching post</p>;
   if (!post) return <p className="text-2xl text-center">No post found</p>;
 
   return (

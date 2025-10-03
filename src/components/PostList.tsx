@@ -1,31 +1,19 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import type { AppDispatch, RootState } from "../store/store";
-import { fetchPosts } from "../store/slices/postsSlice";
+import React from "react";
 import PostCard from "./PostCard";
+import { useGetPostsQuery } from "../store/slices/postsApi";
 
 const PostList: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { posts, loadingPosts, error } = useSelector(
-    (state: RootState) => state.posts
-  );
+  const { data: posts, isLoading, isError } = useGetPostsQuery();
 
-  useEffect(() => {
-    //Only fetch if not already loaded
-    if (!posts.length) {
-      dispatch(fetchPosts());
-    }
-  }, [dispatch, posts.length]);
-
-  if (loadingPosts) {
+  if (isLoading) {
     return <div className="text-2xl text-center">Loading...</div>;
   }
 
-  if (error) {
-    return <div className="text-2xl text-center">Error: {error}</div>;
+  if (isError) {
+    return <div className="text-2xl text-center">Error: {isError}</div>;
   }
 
-  if (!posts.length) {
+  if (!posts?.length) {
     return (
       <div className="text-3xl mt-5 font-bold text-center">
         No Posts Available!!
