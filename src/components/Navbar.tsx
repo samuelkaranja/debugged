@@ -23,9 +23,6 @@ const Navbar: React.FC = () => {
           <Link to="/about-me" className="hover:underline transition">
             About
           </Link>
-          <Link to="/contact" className="hover:underline transition">
-            Contact
-          </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -55,13 +52,6 @@ const Navbar: React.FC = () => {
             onClick={() => setIsOpen(false)}
           >
             About
-          </Link>
-          <Link
-            to="/contact"
-            className="hover:text-emerald-400 transition border-b border-gray-200 pb-2"
-            onClick={() => setIsOpen(false)}
-          >
-            Contact
           </Link>
         </div>
       )}
