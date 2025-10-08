@@ -1,9 +1,14 @@
 import React from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { useGoogleLoginMutation } from "../store/slices/authApi";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../store/slices/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
+  const dispatch = useDispatch();
   const [googleLogin, { isLoading }] = useGoogleLoginMutation();
+  const navigate = useNavigate();
 
   const handleGoogleSuccess = async (credentialResponse: any) => {
     const token = credentialResponse.credential;
@@ -11,9 +16,10 @@ const Login: React.FC = () => {
 
     try {
       const res = await googleLogin({ token }).unwrap();
+      dispatch(setCredentials({ user: res.user, accessToken: res.access }));
       console.log("User:", res.user);
       localStorage.setItem("access_token", res.access);
-      alert(`Welcome, ${res.user.name}!`);
+      navigate("/");
     } catch (error) {
       console.error("Google login failed:", error);
     }
