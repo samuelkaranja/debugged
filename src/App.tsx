@@ -6,6 +6,7 @@ import Details from "./pages/Details";
 import Footer from "./components/Footer";
 import AboutMe from "./pages/AboutMe";
 import Podcast from "./pages/Podcast";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/post-details/:id" element={<Details />} />
             <Route path="/podcast" element={<Podcast />} />
             <Route path="/about-me" element={<AboutMe />} />
+            <Route path="/login" element={<Login />} />
 
             <Route path="*" element={<Home />} />
           </Routes>
