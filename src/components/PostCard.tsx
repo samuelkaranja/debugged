@@ -40,7 +40,7 @@ const PostCard: React.FC<PostProps> = ({ post }) => {
       <div className="mt-4">
         <Link
           to={`/post-details/${post.id}`}
-          className="text-blue-600 hover:underline text-sm underline"
+          className="text-blue-600 hover:underline text-sm"
         >
           Read More
         </Link>

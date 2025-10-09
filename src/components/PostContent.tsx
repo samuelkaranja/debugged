@@ -11,6 +11,7 @@ interface Post {
   author: string;
   created_at: string;
   image_url: string;
+  reading_time: number;
 }
 
 const PostContent: React.FC<Post> = (post) => {
@@ -30,7 +31,7 @@ const PostContent: React.FC<Post> = (post) => {
       <h1 className="text-4xl font-bold mb-2">{post.title}</h1>
       <p className="text-sm text-gray-400 mb-6">
         By <span className="font-medium">{post.author}</span> | Published on{" "}
-        {formatDate(post.created_at)}
+        {formatDate(post.created_at)} | {post.reading_time} min read
       </p>
 
       <p className="mb-4 text-lg text-gray-700">{post.subtitle}</p>

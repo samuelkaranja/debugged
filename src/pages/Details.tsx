@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Content from "../components/Content";
+import PostContent from "../components/PostContent";
 import RelatedPosts from "../components/RelatedPosts";
 import Breadcrumbs from "../components/Breadcrumbs";
 import { useGetPostByIdQuery } from "../store/slices/postsApi";
@@ -19,7 +19,7 @@ const Details: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Blog Content */}
         <div className="lg:col-span-2">
-          <Content {...post} />
+          <PostContent {...post} />
         </div>
 
         {/* Sidebar */}

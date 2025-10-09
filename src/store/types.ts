@@ -5,6 +5,7 @@ export interface Post {
   content: string;
   image_url: string;
   author: string;
+  reading_time: number;
   created_at: string;
   updated_at: string;
 }
