@@ -10,12 +10,16 @@ const Footer: React.FC = () => {
         </p>
         <ul className="flex justify-center space-x-7 mb-4 mt-2">
           <li>
-            <a href="/">
+            <a href="/" target="_blank" rel="noreferrer">
               <FiFacebook className="text-blue-500 w-5 h-5" />
             </a>
           </li>
           <li>
-            <a href="/">
+            <a
+              href="https://www.instagram.com/sam.uelkaranja/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FiInstagram className="text-pink-500 w-5 h-5" />
             </a>
           </li>
