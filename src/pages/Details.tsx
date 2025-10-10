@@ -1,9 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import PostContent from "../components/PostContent";
-import RelatedPosts from "../components/RelatedPosts";
-import Breadcrumbs from "../components/Breadcrumbs";
 import { useGetPostByIdQuery } from "../store/slices/postsApi";
+import { Breadcrumbs, PostContent, RelatedPosts } from "../components";
 
 const Details: React.FC = () => {
   const { id } = useParams<{ id: string }>();

@@ -1,12 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
-import Details from "./pages/Details";
-import Footer from "./components/Footer";
-import AboutMe from "./pages/AboutMe";
-import Podcast from "./pages/Podcast";
-import Login from "./pages/Login";
+import { Footer, Navbar } from "./components";
+import { AboutMe, Details, Home, Login, Podcast } from "./pages";
 
 function App() {
   return (

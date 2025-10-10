@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import PostList from "../components/PostList";
+import { PostList } from "../components";
 
 const Home: React.FC = () => {
   useEffect(() => {

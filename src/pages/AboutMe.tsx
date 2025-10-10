@@ -1,7 +1,6 @@
 import React from "react";
-import Profile from "../components/Profile";
-//import coder from "../assets/code1.jpg";
 import Sam from "../assets/Sam.jpeg";
+import { Profile } from "../components";
 
 const AboutMe: React.FC = () => {
   return (
