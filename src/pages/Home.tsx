@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
 import { PostList } from "../components";
 
-const Home: React.FC = () => {
+interface HomeProps {
+  searchText: string;
+}
+
+const Home: React.FC<HomeProps> = ({ searchText }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div>
-      <PostList />
+      <PostList searchText={searchText} />
     </div>
   );
 };

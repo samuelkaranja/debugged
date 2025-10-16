@@ -3,7 +3,11 @@ import { useGetPostsQuery } from "../store/slices/postsApi";
 import PostCard from "./PostCard";
 import { FaSpinner } from "react-icons/fa";
 
-const PostList: React.FC = () => {
+interface PostListProps {
+  searchText: string;
+}
+
+const PostList: React.FC<PostListProps> = ({ searchText }) => {
   const { data: posts, isLoading, isError } = useGetPostsQuery();
 
   if (isLoading) {
@@ -26,9 +30,21 @@ const PostList: React.FC = () => {
     );
   }
 
+  const filteredPosts = posts.filter((p) =>
+    p.title?.toLowerCase().includes(searchText?.toLowerCase())
+  );
+
+  if (filteredPosts.length === 0) {
+    return (
+      <div className="text-2xl mt-5 font-semibold text-center text-gray-500">
+        No posts found matching "{searchText}"
+      </div>
+    );
+  }
+
   return (
     <>
-      {posts.map((post) => (
+      {filteredPosts.map((post) => (
         <PostCard post={post} key={post.id} />
       ))}
     </>
