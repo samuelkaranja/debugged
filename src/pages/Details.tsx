@@ -2,12 +2,18 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetPostByIdQuery } from "../store/slices/postsApi";
 import { Breadcrumbs, PostContent, RelatedPosts } from "../components";
+import { FaSpinner } from "react-icons/fa";
 
 const Details: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { data: post, isLoading, error } = useGetPostByIdQuery(Number(id));
 
-  if (isLoading) return <p className="text-2xl text-center">Loading...</p>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-50">
+        <FaSpinner className="text-5xl animate-spin text-green-300" />
+      </div>
+    );
   if (error) return <p className="text-2xl text-center">Error fetching post</p>;
   if (!post) return <p className="text-2xl text-center">No post found</p>;
 

@@ -1,12 +1,17 @@
 import React from "react";
 import { useGetPostsQuery } from "../store/slices/postsApi";
 import PostCard from "./PostCard";
+import { FaSpinner } from "react-icons/fa";
 
 const PostList: React.FC = () => {
   const { data: posts, isLoading, isError } = useGetPostsQuery();
 
   if (isLoading) {
-    return <div className="text-2xl text-center">Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-50">
+        <FaSpinner className="text-5xl animate-spin text-green-300" />
+      </div>
+    );
   }
 
   if (isError) {
