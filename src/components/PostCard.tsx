@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { formatDate, truncateText } from "../utils/helpers";
 import type { Post } from "../store/types";
+import { FaArrowRight } from "react-icons/fa";
 
 type PostProps = {
   post: Post;
@@ -40,9 +41,10 @@ const PostCard: React.FC<PostProps> = ({ post }) => {
       <div className="mt-4">
         <Link
           to={`/post-details/${post.id}`}
-          className="text-blue-600 hover:underline text-sm"
+          className="flex flex-row items-center text-blue-600 hover:underline text-sm"
         >
           Read More
+          <FaArrowRight size={10} className="ml-1" />
         </Link>
       </div>
     </div>
