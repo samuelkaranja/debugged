@@ -1,7 +1,9 @@
 export { default as Navbar } from "./Navbar";
 export { default as Breadcrumbs } from "./Breadcrumbs";
 export { default as SearchPost } from "./SearchPost";
+export { default as Categories } from "./Categories";
 export { default as PostList } from "./PostList";
+export { default as SocialLinks } from "./SocialLinks";
 export { default as PostCard } from "./PostCard";
 export { default as PostContent } from "./PostContent";
 export { default as RelatedPosts } from "./RelatedPosts";

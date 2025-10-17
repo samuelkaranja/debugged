@@ -10,7 +10,7 @@ const Categories: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gray-50 rounded-lg shadow-md p-4">
+    <div className="bg-white rounded-lg shadow-md p-4">
       <h3 className="text-xl font-semibold mb-4">Categories</h3>
       <ul className="space-y-2">
         {categories.map((cat) => (

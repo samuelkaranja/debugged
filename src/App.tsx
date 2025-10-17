@@ -8,7 +8,7 @@ function App() {
   const [searchText, setSearchText] = useState("");
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="bg-[#f7f8f9] flex flex-col min-h-screen">
       <Router>
         <Navbar searchText={searchText} setSearchText={setSearchText} />
         <main className="flex-1">
