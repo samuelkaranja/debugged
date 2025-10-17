@@ -8,7 +8,7 @@ const posts = [
 
 const RelatedPosts: React.FC = () => {
   return (
-    <div className="border border-gray-200  p-4 rounded-lg">
+    <div className="bg-white p-4 rounded-lg">
       <h3 className="text-lg font-semibold mb-4 underline">Related Posts</h3>
       <ul className="space-y-3">
         {posts.map((post, index) => (

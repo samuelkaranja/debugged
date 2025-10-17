@@ -24,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ searchText, setSearchText }) => {
   };
 
   return (
-    <nav className="text-[#333] px-7 py-4 md:px-10 md:mb-5 border-b border-gray-200">
+    <nav className="bg-white text-[#333] px-7 py-4 md:px-10 md:mb-5">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold tracking-wide italic">
