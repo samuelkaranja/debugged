@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Categories, PostList, SocialLinks } from "../components";
+import { Categories, PopularPosts, PostList, SocialLinks } from "../components";
 
 interface HomeProps {
   searchText: string;
@@ -11,7 +11,7 @@ const Home: React.FC<HomeProps> = ({ searchText }) => {
   }, []);
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-start gap-18 px-8 py-4">
+    <div className="flex flex-col md:flex-row justify-center items-start gap-5 px-4 md:px-15 py-4">
       <div className="md:w-1/5 hidden md:block">
         <Categories />
       </div>
@@ -20,6 +20,7 @@ const Home: React.FC<HomeProps> = ({ searchText }) => {
       </div>
       <div className="md:w-1/5 hidden md:block">
         <SocialLinks />
+        <PopularPosts />
       </div>
     </div>
   );
