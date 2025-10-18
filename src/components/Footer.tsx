@@ -1,5 +1,4 @@
 import React from "react";
-import { FiFacebook, FiGithub, FiInstagram } from "react-icons/fi";
 
 const Footer: React.FC = () => {
   return (
@@ -8,32 +7,6 @@ const Footer: React.FC = () => {
         <p className="text-md pb-3">
           &copy; {new Date().getFullYear()} codedebugged. All rights reserved.
         </p>
-        <ul className="flex justify-center space-x-7 mb-4 mt-2">
-          <li>
-            <a href="/" target="_blank" rel="noreferrer">
-              <FiFacebook className="text-blue-500 w-5 h-5" />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.instagram.com/sam.uelkaranja/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FiInstagram className="text-pink-500 w-5 h-5" />
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/samuelkaranja"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FiGithub className="text-black w-5 h-5" />
-            </a>
-          </li>
-        </ul>
-        <p className="text-sm">Made with ❤️ by Samuel Karanja</p>
       </footer>
     </div>
   );
