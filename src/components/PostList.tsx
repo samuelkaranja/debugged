@@ -8,7 +8,13 @@ interface PostListProps {
 }
 
 const PostList: React.FC<PostListProps> = ({ searchText }) => {
-  const { data: posts, isLoading, isError } = useGetPostsQuery();
+  const {
+    data: posts,
+    isLoading,
+    isError,
+    error,
+    refetch,
+  } = useGetPostsQuery();
 
   if (isLoading) {
     return (
@@ -19,7 +25,32 @@ const PostList: React.FC<PostListProps> = ({ searchText }) => {
   }
 
   if (isError) {
-    return <div className="text-2xl text-center">Error: {isError}</div>;
+    let errorMessage =
+      "Unable to connect to the server. Please try again later.";
+
+    // Optional detailed handling
+    if (error && "status" in error) {
+      if (error.status === "FETCH_ERROR") {
+        errorMessage = "Network error: Backend not reachable.";
+      } else if (error.status === 500) {
+        errorMessage = "Server error. Please try again later.";
+      } else if (error.status === 404) {
+        errorMessage = "Requested resource not found.";
+      }
+    }
+
+    return (
+      <div className="flex flex-col items-center justify-center mt-10 space-y-3">
+        <p className="text-xl font-semibold text-red-500">{errorMessage}</p>
+        <p className="text-gray-500">We’re working to fix the issue...</p>
+        <button
+          onClick={() => refetch()}
+          className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
+        >
+          Retry
+        </button>
+      </div>
+    );
   }
 
   if (!posts?.length) {
