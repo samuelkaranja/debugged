@@ -31,7 +31,7 @@ const PostList: React.FC<PostListProps> = ({ searchText }) => {
     // Optional detailed handling
     if (error && "status" in error) {
       if (error.status === "FETCH_ERROR") {
-        errorMessage = "Network error: Backend not reachable.";
+        errorMessage = "Network error: Data not reachable.";
       } else if (error.status === 500) {
         errorMessage = "Server error. Please try again later.";
       } else if (error.status === 404) {

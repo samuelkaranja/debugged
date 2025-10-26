@@ -26,12 +26,14 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-[80vh] mx-auto">
+    <div className="w-50 flex flex-col items-center justify-center h-[80vh] mx-auto">
       <GoogleLogin
         onSuccess={handleGoogleSuccess}
         onError={() => console.log("Login Failed")}
       />
-      {isLoading && <p className="mt-4 text-gray-500">Logging in...</p>}
+      {isLoading && (
+        <p className="mt-4 text-[#333] text-center">Logging in...</p>
+      )}
     </div>
   );
 };

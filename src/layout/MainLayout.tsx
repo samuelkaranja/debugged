@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Footer, Navbar } from "../components";
 import { Outlet } from "react-router-dom";
 
 const MainLayout: React.FC = () => {
-  const [searchText, setSearchText] = useState("");
-
   return (
     <div>
       <div>
-        <Navbar searchText={searchText} setSearchText={setSearchText} />
+        <Navbar />
       </div>
       <div>
         <Outlet />
