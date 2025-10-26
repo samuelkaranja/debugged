@@ -11,7 +11,7 @@ const SearchPost: React.FC<SearchPostProps> = ({
   setSearchText,
 }) => {
   return (
-    <form className="flex items-center border border-gray-300 rounded px-3 py-2 w-full">
+    <form className="flex items-center border border-gray-200 rounded px-3 py-2 w-full">
       <FaSearch className="text-gray-500 mr-2" />
       <input
         type="text"

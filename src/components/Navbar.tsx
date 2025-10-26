@@ -3,19 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../store/store";
 import { logout } from "../store/slices/authSlice";
-import SearchPost from "./SearchPost";
 
-interface NavbarProps {
-  searchText: string;
-  setSearchText: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ searchText, setSearchText }) => {
+const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state: RootState) => state.auth); // Get logged-in user info from Redux store
+  const { user } = useSelector((state: RootState) => state.auth);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -33,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ searchText, setSearchText }) => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex space-x-8 text-sm items-center">
-          <SearchPost searchText={searchText} setSearchText={setSearchText} />
+          {/* <SearchPost searchText={searchText} setSearchText={setSearchText} /> */}
           <Link to="/" className="hover:underline transition">
             Home
           </Link>

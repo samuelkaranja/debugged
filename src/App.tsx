@@ -10,15 +10,25 @@ function App() {
   return (
     <div className="bg-[#f7f8f9] flex flex-col min-h-screen">
       <Router>
-        <Navbar searchText={searchText} setSearchText={setSearchText} />
+        <Navbar />
         <main className="flex-1">
           <Routes>
-            <Route path="/" element={<Home searchText={searchText} />} />
+            <Route
+              path="/"
+              element={
+                <Home searchText={searchText} setSearchText={setSearchText} />
+              }
+            />
             <Route path="/post-details/:id" element={<Details />} />
             <Route path="/podcast" element={<Podcast />} />
             <Route path="/about-me" element={<AboutMe />} />
 
-            <Route path="*" element={<Home searchText={searchText} />} />
+            <Route
+              path="*"
+              element={
+                <Home searchText={searchText} setSearchText={setSearchText} />
+              }
+            />
 
             <Route path="/login" element={<Login />} />
           </Routes>
