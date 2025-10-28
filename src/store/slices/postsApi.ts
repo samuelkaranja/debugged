@@ -26,7 +26,9 @@ const fetchBaseQueryWithTimeout =
 
     try {
       const result = await baseQuery(
-        { ...args, signal: controller.signal },
+        typeof args === "string"
+          ? { url: args, signal: controller.signal }
+          : { ...args, signal: controller.signal },
         api,
         extraOptions
       );
